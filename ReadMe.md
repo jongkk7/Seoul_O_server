@@ -74,3 +74,39 @@
 >            }
 >        });
 > ```
+
+## Gilde
+##### step 1.
+> manifest
+> ``` java
+> <uses-permission android:name="android.permission.INTERNET"/>
+> ```
+
+##### step 2.
+> build.gradle(Module:app)
+> ``` java
+> compile 'com.github.bumptech.glide:glide:3.6.0'
+> compile 'jp.wasabeef:glide-transformations:1.0.6@aar'  // 이미지 변형 ( 원형 )
+> ```
+
+##### step 3.
+> 이미지뷰과 url로 이미지 삽입
+> ``` java
+> Glide.with(context)
+>       .load({id})
+>       .bitmapTransform(new CropCircleTransformation(bitmapPool))
+>       .override(130,130)
+>       .into({view});
+> ```
+> 주의 : bitmapPool은 새로 생성해야 한다. (default로 생성 가능)
+
+
+
+## Callback
+#### callback 사용 이유?
+>
+>
+
+#### callback 사용 예시
+>
+>
