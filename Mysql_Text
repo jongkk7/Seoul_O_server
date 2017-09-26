@@ -1,0 +1,18 @@
+MySql
+
+sudo mysql -p
+0000
+
+use seoul_o;
+
+insert into userimages values ('yjk','a01089929866@gmail.com','image03.jpeg',39);
+insert into userimages values ('yjk','a01089929866@gmail.com','image02.jpeg',25);
+insert into userimages values ('admin','a01089929866@gmail.com','image01.jpeg',270);
+insert into userimages values ('admin','a01089929866@gmail.com','image02.jpeg',132);
+insert into userimages values ('admin','a01089929866@gmail.com','image03.jpeg',1000);
+
+select * from userimages;
+
+select *
+from (select name, email, url, good, (select count(*)+1 from userimages a where a.good > b.good) as ranking from userimages as b order by ranking asc) rank
+where ranking < 6;
